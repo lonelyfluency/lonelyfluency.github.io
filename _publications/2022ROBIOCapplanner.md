@@ -4,6 +4,7 @@ collection: publications
 permalink: /publication/2022ROBIOCapplanner
 date: "Dec. 2022"
 venue: 'ROBIO2022'
+reward: 'Best Paper in Biomimetics Finalist'
 # paperurl: 'http://yangcyself.github.io/files/HexpodPaper.pdf'
 citation: 'Changda Tian and Yue Gao. CapPlanner: Adaptable to Various Topology and Locomotion Capability for Hexapod Robots. In IEEE International Conference on Robotics and Biomimetics (ROBIO), December 2022.'
 ---

@@ -3,7 +3,7 @@ title: "Sim-to-Real: Designing Locomotion Controller for Six-Legged Robot"
 collection: publications
 permalink: /publication/HexpodPaper
 date: 2019-07-29
-venue: 'ieee-cyber'
+venue: 'IEEE International Conference on CYBER Technology in Automation, Control, and Intelligent Systems (IEEE-CYBER)'
 
 ---
 Use sim-to-real reinforcement learning to train a hexpod learn to walk to its target at the same time get rid of the obstacles. 
