@@ -6,7 +6,7 @@ date: "Dec. 2022"
 venue: 'ROBIO2022, Best Paper in Biomimetics Finalist'
 reward: 'Best Paper in Biomimetics Finalist'
 # paperurl: 'http://yangcyself.github.io/files/HexpodPaper.pdf'
-citation: 'Changda Tian and Yue Gao. CapPlanner: Adaptable to Various Topology and Locomotion Capability for Hexapod Robots. In IEEE International Conference on Robotics and Biomimetics (ROBIO), December 2022.'
+citation: 'Changda Tian and Yue Gao. CapPlanner: Adaptable to Various Topology and Locomotion Capability for Hexapod Robots. In IEEE International Conference on Robotics and Biomimetics (IEEE-ROBIO), December 2022.'
 ---
 
 We present CapPlanner, a hierarchical motion control and planning system which can do long-range locomotion control and planning according to the learned traverse capability of the robot in different topologies. It consists of two layers, the bottom-level controller computes the trajectory of the body and the feet according to the terrain, local target and current feets’ positions. Besides, it controls the motors to track the calculated trajectory.
