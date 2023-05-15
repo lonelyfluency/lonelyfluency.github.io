@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "ABOUT ME"
-excerpt: "About Ziqi Ma"
+excerpt: "About Changda Tian"
 author_profile: true
 redirect_from: 
   - /about/
@@ -10,23 +10,21 @@ redirect_from:
 
 ## Academic
 
-I am currently a master student in Shanghai Jiao Tong University majored in Information Engineering. My research interest is about robot arms and manipulation. And I am in [RL2 Lab](https://gaoyue.sjtu.edu.cn) of the AI Institute, SJTU. I am doing research about robot manipulation on the following topics:
+I am currently a master student in Shanghai Jiao Tong University majored in Automation & Control Engineering. My research interest is about legged robots. And I am in [RL2 Lab](https://gaoyue.sjtu.edu.cn) of the AI Institute of SJTU. I am doing research about legged robots on the following topics:
 
-- Motion planning and control for robot arms.
+- Locomotion planning and control for legged robots.
   
-- Reinforcement learning based manipulation for robot arms. 
+- Reinforcement learning based motion control for legged robots. 
 
-- Human like imitation learning based manipulation for robot arms.
+- Traverse capability based path planning for legged robots.
 
 ## Teaching
 
-In 2023, I have been doing a teaching assistant in SPEIT SJTU. My work is about help the professor teach undergraduate students in mobile robotic classes.
+I have been doing a part-time job as an informatics competition coach in Shanghai Jiao Long Academy. My job is to teach middle school students classical algorithms and programming in Python/C++ to participate in informatics competitions.
 
-## Exchange
+## Open Source Community
 
-From 08/2021 to 09/2022, being proficient in French, I have been to ENSTA Paris for over one year as a exchange graduate student. In ENSTA, I took some courses and participated in the [U2IS Lab](http://u2is.ensta-paris.fr/index.php?lang=en) and was mentored by [Sao Mai NGUYEN](http://nguyensmai.free.fr/Home.html).I have developped a good acknoweledgement about humain robot interaction and have done some researches on motion retargeting.
+I am proficient at developing in python and good at C/C++ and ROS. I will be very happy to contribute to Open Source projects about robot perception, planning and control.
 
-## Internship
-In 2020, I developped a three month internship in the company Air Liquide, there, I worked for the computer science department and tried to solve a distribution problem by using the clustering algorithm.
 
 
