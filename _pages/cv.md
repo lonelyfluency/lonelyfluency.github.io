@@ -38,6 +38,7 @@ redirect_from:
 
 - **Programming: C/C++, Python**
 - **Robotic systems: ROS**
+- **3D modeling: Solidworks**
 - **ML systems: Pytorch**
 - **Physical Simulation Plantforms: Mujoco, CoppeliaSim**
 - **Data Acquisition & Processing: Matlab, Mathematica**
