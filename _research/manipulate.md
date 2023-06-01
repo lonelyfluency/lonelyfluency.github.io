@@ -17,6 +17,6 @@ Overall, our approach represents a significant step towards developing robots an
 
 ### System Framework
 
-![](../images/stru_with_strength.PNG)
+![](../images/stru_with_strength.png)
 
 > The top picture is the overall structure of our method. With human manipulation video clips, we can train the robot arm to manipulate tools as human. The bottom-left picture indicates normal robot arm hammering task without learning human skills, in which the trajectory of the hammer is consistent with the direction of the hammering direction. The bottom-right picture shows our method, with human skills learned, the arm can hammer with swinging.
