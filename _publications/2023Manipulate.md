@@ -1,10 +1,11 @@
 ---
 title: "Manipulate as Human: Learning Task-oriented Manipulation Skills by Adversarial Motion Priors"
-collection: research
+collection: publications
 type: "Robot Arm control"
-permalink: /research/manipulate
-venue: "Shanghai Jiao Tong University"
+permalink: /publication/2023Manipulate
+venue: "Submitted to IEEE ICRA 2024 and Under Review"
 date: 2023.3-2023.9
+citation: 'Ziqi Ma, Changda Tian and Yue Gao. Manipulate as Human: Learning Task-oriented Manipulation Skills by Adversarial Motion Priors. Submitted to IEEE ICRA 2024 and Under Review, Sept 2023.'
 ---
 
 In recent years, there has been growing interest in developing robots and autonomous systems that can interact with humans in a more natural and intuitive way. One of the key challenges in achieving this goal is to enable these systems to manipulate objects and tools in a manner that is similar to how humans do. In this paper, we propose a novel approach for learning human-style manipulation skills by using adversarial motion priors.

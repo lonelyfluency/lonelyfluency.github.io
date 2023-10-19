@@ -14,7 +14,7 @@ redirect_from:
 * **Birth of Date: 11/19/1997**
 * **Email: tianchangda97@gmail.com**
 * **Cell: GR +30 6973678772  CN +86 18916906856**
-* **Address： Shanghai Jiao Tong University No.800 Dongchuan Road, Shanghai 200240, China.**
+* **Address： Nik. Plastira 100, Iraklio 700 13, Greece.**
 
 
 # AREAS OF INTERESTS
