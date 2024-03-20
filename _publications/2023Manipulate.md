@@ -3,7 +3,7 @@ title: "Manipulate as Human: Learning Task-oriented Manipulation Skills by Adver
 collection: publications
 type: "Robot Arm control"
 permalink: /publication/2023Manipulate
-venue: "Submitted to IEEE ICRA 2024 and Under Review"
+venue: "Submitted to IEEE RAL and Under Review"
 date: 2023.3-2023.9
 citation: 'Ziqi Ma, Changda Tian and Yue Gao. Manipulate as Human: Learning Task-oriented Manipulation Skills by Adversarial Motion Priors. Submitted to IEEE ICRA 2024 and Under Review, Sept 2023.'
 ---
