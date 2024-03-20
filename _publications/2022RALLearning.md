@@ -2,7 +2,7 @@
 title: "Learning Capability to Enhance Locomotion Control and Planning for Legged Robots"
 collection: publications
 permalink: /publication/2022RALLearning
-date: "Dec. 2022"
+date: "Dec. 2023"
 venue: 'Submitted to IEEE RAM and Under Review'
 citation: 'Changda Tian and Yue Gao. Learning Capability to Enhance Locomotion Control and Planning for Legged Robots. Submitted to IEEE RAM and under review, Sept 2023.'
 ---
