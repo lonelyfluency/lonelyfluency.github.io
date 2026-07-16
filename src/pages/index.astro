@@ -1,0 +1,240 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroVisual from '../components/HeroVisual.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import ThemeIcon from '../components/ThemeIcon.astro';
+import FeaturedProjectCard from '../components/FeaturedProjectCard.astro';
+import PublicationEntry from '../components/PublicationEntry.astro';
+import SoftwareCard from '../components/SoftwareCard.astro';
+import ResearchTag from '../components/ResearchTag.astro';
+import { SITE } from '../site.config';
+import { getSelectedPublications } from '../lib/publications';
+import { getSoftware, getTimeline, formatDate } from '../lib/data';
+import { ArrowRight, FileText, Mail } from 'lucide-astro';
+
+const themes = (await getCollection('research')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const featured = (await getCollection('projects'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+const selectedPubs = getSelectedPublications(5);
+const software = getSoftware().filter((s) => s.featured).slice(0, 3);
+const timeline = getTimeline().slice(0, 6);
+const news = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+---
+
+<BaseLayout>
+  <!-- ============ 1 · Hero (design.md §7) ============ -->
+  <section class="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1.05fr_0.95fr]">
+    <div>
+      <p class="font-mono text-sm text-accent">{SITE.author.position}</p>
+      <h1 class="mt-3 text-5xl font-semibold tracking-tight text-ink sm:text-6xl lg:text-7xl">
+        {SITE.author.name}
+      </h1>
+      <p class="mt-2 text-lg text-muted">
+        Robotics Researcher ·
+        <a href={SITE.author.affiliationUrl} target="_blank" rel="noopener noreferrer" class="underline decoration-line underline-offset-2 hover:text-accent">
+          {SITE.author.affiliation}
+        </a>
+      </p>
+      <p class="mt-6 max-w-xl font-serif text-xl leading-relaxed text-ink/90">
+        {SITE.statement}
+      </p>
+      <p class="mt-5 flex flex-wrap gap-2">
+        {SITE.topics.map((t) => <ResearchTag label={t} tone="accent" />)}
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a
+          href="/research/"
+          class="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-surface transition-opacity duration-150 hover:opacity-90"
+        >
+          View Research
+          <ArrowRight size={15} aria-hidden="true" />
+        </a>
+        <a
+          href="/publications/"
+          class="inline-flex items-center gap-2 rounded-md border border-line bg-surface px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+        >
+          Publications
+        </a>
+        <a
+          href="/cv/"
+          class="inline-flex items-center gap-2 rounded-md border border-line bg-surface px-4 py-2.5 text-sm font-medium text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+        >
+          <FileText size={15} aria-hidden="true" />
+          CV
+        </a>
+        <SocialLinks class="ml-1" />
+      </div>
+    </div>
+    <HeroVisual />
+  </section>
+
+  <!-- ============ 2 · Research Focus (design.md §8) ============ -->
+  <section class="border-t border-line bg-surface/50">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <SectionHeading
+        eyebrow="01 · Research Focus"
+        title="Questions I work on"
+        more={{ href: '/research/', label: 'All research themes' }}
+      />
+      <div class="grid gap-5 sm:grid-cols-2">
+        {
+          themes.map((theme, i) => (
+            <a
+              href={`/research/${theme.id}/`}
+              class:list={[
+                'reveal group flex flex-col gap-3 rounded-2xl border border-line bg-surface p-7 transition-colors duration-200 hover:border-accent/60',
+                i === 0 && 'sm:col-span-2', // current focus gets the full-width card
+              ]}
+            >
+              <span class="text-accent">
+                <ThemeIcon icon={theme.data.icon} class="h-9 w-9" />
+              </span>
+              <h3 class="text-lg font-semibold tracking-tight text-ink transition-colors duration-150 group-hover:text-accent">
+                {theme.data.title}
+              </h3>
+              <p class="text-sm leading-relaxed text-muted">{theme.data.question}</p>
+              <p class="mt-auto flex flex-wrap gap-1.5 pt-2">
+                {theme.data.methods.map((m) => (
+                  <ResearchTag label={m} />
+                ))}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · Featured Research (design.md §9) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <SectionHeading
+      eyebrow="02 · Featured Research"
+      title="Systems I build"
+      more={{ href: '/projects/', label: 'All projects' }}
+    />
+    <div class="grid gap-6">
+      {featured.map((p) => <div class="reveal"><FeaturedProjectCard project={p} /></div>)}
+    </div>
+  </section>
+
+  <!-- ============ 4 · Selected Publications (design.md §11.5) ============ -->
+  <section class="border-t border-line bg-surface/50">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <SectionHeading
+        eyebrow="03 · Selected Publications"
+        title="Evidence"
+        more={{ href: '/publications/', label: 'Full publication list' }}
+      />
+      <div class="grid gap-4">
+        {selectedPubs.map((pub) => <div class="reveal"><PublicationEntry pub={pub} compact /></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · Research Timeline (design.md §14) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <SectionHeading eyebrow="04 · Timeline" title="Milestones" />
+    <ol class="relative ml-3 border-l border-line">
+      {
+        timeline.map((item) => (
+          <li class="reveal relative mb-8 pl-8 last:mb-0">
+            <span class="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-accent bg-bg" aria-hidden="true" />
+            <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <time class="font-mono text-xs text-muted">{item.date}</time>
+              <ResearchTag label={item.category} />
+            </div>
+            <h3 class="mt-1.5 font-medium text-ink">
+              {item.link ? (
+                <a href={item.link} class="transition-colors duration-150 hover:text-accent">
+                  {item.title}
+                </a>
+              ) : (
+                item.title
+              )}
+            </h3>
+            <p class="mt-1 max-w-2xl text-sm leading-relaxed text-muted">{item.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- ============ 6 · Open Source (design.md §13) ============ -->
+  <section class="border-t border-line bg-surface/50">
+    <div class="mx-auto max-w-6xl px-5 py-20">
+      <SectionHeading
+        eyebrow="05 · Open Source"
+        title="Software"
+        more={{ href: '/software/', label: 'Software catalog' }}
+      />
+      <div class="grid gap-5 md:grid-cols-3">
+        {software.map((item) => <div class="reveal"><SoftwareCard item={item} /></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · Latest News (design.md §15) ============ -->
+  <section class="mx-auto max-w-6xl px-5 py-20">
+    <SectionHeading
+      eyebrow="06 · News"
+      title="Latest"
+      more={{ href: '/news/', label: 'News archive' }}
+    />
+    <ul class="divide-y divide-line rounded-2xl border border-line bg-surface">
+      {
+        news.map((item) => (
+          <li class="flex flex-col gap-1 px-6 py-4 sm:flex-row sm:items-baseline sm:gap-5">
+            <time class="shrink-0 font-mono text-xs text-muted sm:w-24">{formatDate(item.data.date)}</time>
+            <span class="shrink-0"><ResearchTag label={item.data.category} /></span>
+            <p class="text-sm text-ink">
+              {item.data.link ? (
+                <a href={item.data.link} class="transition-colors duration-150 hover:text-accent">
+                  {item.data.title}
+                </a>
+              ) : (
+                item.data.title
+              )}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <!-- ============ 8 · Contact CTA ============ -->
+  <section class="border-t border-line bg-surface/50">
+    <div class="mx-auto max-w-6xl px-5 py-20 text-center">
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-accent">07 · Contact</p>
+      <h2 class="mx-auto mt-3 max-w-2xl font-serif text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+        Interested in modular legged robots, locomotion learning, or collaboration?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-muted">
+        I'm happy to talk about research, open-source robotics, and
+        collaborations — the fastest way to reach me is email.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a
+          href={`mailto:${SITE.author.email}`}
+          class="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-medium text-surface transition-opacity duration-150 hover:opacity-90"
+        >
+          <Mail size={15} aria-hidden="true" />
+          {SITE.author.email}
+        </a>
+        <a
+          href="/about/"
+          class="inline-flex items-center gap-2 rounded-md border border-line bg-surface px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-150 hover:border-accent hover:text-accent"
+        >
+          About me
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

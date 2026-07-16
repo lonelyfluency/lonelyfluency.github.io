@@ -1,0 +1,62 @@
+# ============================================================
+# CV data — rendered at /cv/ (print-friendly).
+# ============================================================
+
+interests:
+  - Modular Legged Robots
+  - Robot Design & Control
+  - Reinforcement Learning
+  - Sim-to-Real Transfer
+
+education:
+  - degree: PhD, Robotics & Computer Science
+    institution: FORTH & University of Crete, Greece
+    detail: Marie Skłodowska-Curie Actions fellow (RAICAM), CVRL-FORTH
+    period: 2023 – present
+  - degree: M.Eng., Control Engineering
+    institution: Shanghai Jiao Tong University, China
+    detail: RL2 Lab, AI Institute (advisor Prof. Yue Gao)
+    period: 2020 – 2023
+  - degree: B.Eng., Automation
+    institution: Shanghai Jiao Tong University, China
+    detail: Zhiyuan College Honors Program of Engineering (top 5%)
+    period: 2016 – 2020
+
+positions:
+  - role: Teaching Assistant
+    org: Department of Computer Science, University of Crete
+    period: 2023 – present
+  - role: Informatics Competition Coach (part-time)
+    org: Shanghai Jiao Long Academy
+    period: before 2023
+    detail: >-
+      Taught classical algorithms and Python/C++ programming to middle-school
+      students preparing for informatics competitions.
+
+awards:
+  - title: Marie Skłodowska-Curie Actions PhD Fellowship (RAICAM)
+    date: Sep 2023
+  - title: Best Paper in Biomimetics — Finalist, IEEE ROBIO
+    date: Dec 2022
+  - title: Graduate Student Academic Scholarship (×3)
+    date: 2020 – 2022
+  - title: Second Prize, East China NXP Smart Car Competition
+    date: Aug 2019
+  - title: H Prize, Mathematical Contest in Modeling (MCM)
+    date: Apr 2019
+  - title: CASC Aerospace Science and Technology Award (top 5%)
+    date: Oct 2018
+  - title: National Scholarship (top 1%)
+    date: Oct 2017
+  - title: Zhiyuan Excellent Scholarship (×4, top 10%)
+    date: 2016 – 2019
+
+skills:
+  - group: Programming
+    items: [Python, C/C++, Verilog HDL]
+  - group: Robotics
+    items: [ROS, MuJoCo, CoppeliaSim, Whole-Body Control]
+  - group: Machine Learning
+    items: [PyTorch, Reinforcement Learning, Imitation Learning]
+  - group: Engineering
+    items: [SolidWorks, MATLAB, Mathematica, FPGA (Quartus II)]

@@ -1,0 +1,44 @@
+# ============================================================
+# Open-source software catalog (design.md §13).
+# TODO: replace the repo links below with your actual public
+# repositories — these entries describe real research code but
+# currently point at your GitHub profile.
+#
+# status: stable | active | research | archived | planned
+# ============================================================
+
+- name: CapPlanner
+  problem: Long-range planning that respects what a legged robot can traverse
+  description: >-
+    Research code for capability-aware locomotion planning on hexapod robots:
+    simulation environments, capability-abstraction training, and
+    capability-augmented path planners.
+  repo: https://github.com/lonelyfluency
+  category: Planning & Control
+  platforms: [Python, PyTorch, CoppeliaSim]
+  status: research
+  featured: true
+
+- name: HMAMP
+  problem: Training manipulation policies with human-style motion priors
+  description: >-
+    Training pipeline for adversarial motion priors on robot arms — human
+    video keypoint extraction, robot alignment, and AMP-augmented
+    reinforcement learning, with Kinova Gen3 deployment scripts.
+  repo: https://github.com/lonelyfluency
+  category: Learning
+  platforms: [Python, PyTorch]
+  status: research
+  featured: true
+
+- name: Hexapod Locomotion Stack
+  problem: A reproducible controller stack for six-legged robots
+  description: >-
+    Layered locomotion control for hexapods: trajectory-optimization gait
+    generation below, learning-based planning above, with ROS integration and
+    sim-to-real tooling.
+  repo: https://github.com/lonelyfluency
+  category: Robotics Framework
+  platforms: [C++, Python, ROS]
+  status: research
+  featured: true

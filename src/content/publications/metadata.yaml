@@ -1,0 +1,137 @@
+# ============================================================
+# Presentation metadata for publications, keyed by BibTeX key.
+# All fields are optional:
+#   selected      show on the homepage "Selected Publications"
+#   order         ordering among selected publications
+#   thumbnail     small image shown next to the entry
+#   summary       one-sentence contribution (shown instead of abstract)
+#   project       internal link to the related project page
+#   pdf/code/video/dataset   resource buttons
+#   tags          topic tags (also used by the publication filter)
+# ============================================================
+
+tian2026rolebased:
+  selected: true
+  order: 1
+  thumbnail: /images/publications/iros26.webp
+  thumbnailAlt: >-
+    Cover figure comparing coupled single-critic value estimation with
+    decoupled stance/swing dual-critic estimation for legged locomotion
+  summary: >-
+    Partitioning locomotion rewards by stance and swing roles stabilizes
+    multi-objective reinforcement learning — validated on a real Unitree Go2
+    and extended to the G1 biped. Accepted at IROS 2026.
+  tags: [Legged Robots, Reinforcement Learning, Sim-to-Real]
+
+tian2026ballbalance:
+  selected: true
+  order: 2
+  thumbnail: /images/projects/ball_balancing_card.webp
+  thumbnailAlt: A Unitree Go2 quadruped balancing a ball on a plate mounted on its back
+  summary: >-
+    A quadruped walks while keeping a free-rolling ball balanced on a plate
+    on its back — learned in simulation, transferred to a real Unitree Go2.
+    Presented at IEEE/ASME AIM 2026 in Genova.
+  project: /projects/ball-balancing/
+  video: /files/ball_balancing.mp4
+  tags: [Legged Robots, Reinforcement Learning, Sim-to-Real]
+
+ma2025manipulate:
+  selected: true
+  order: 3
+  thumbnail: /images/projects/amp_arm_frame.webp
+  thumbnailAlt: HMAMP adversarial motion prior training architecture
+  summary: >-
+    Human-style, task-oriented manipulation skills learned with adversarial
+    motion priors and deployed on a real Kinova Gen3 arm — now published in
+    Robotica.
+  project: /projects/hmamp/
+  video: /files/ziqi_video.mp4
+  tags: [Manipulation, Reinforcement Learning, Learning from Humans]
+
+argiropoulos2025torque:
+  thumbnail: /images/publications/optimal_torque.webp
+  thumbnailAlt: Diagram of the torque-distribution adaptation layer for quadrupedal locomotion
+  summary: >-
+    A real-time adaptive controller that redistributes joint torques by
+    slippage probability, keeping quadrupeds stable on highly slippery
+    terrain without pre-trained policies.
+  tags: [Legged Robots, Control]
+
+yang2019simtoreal:
+  thumbnail: /images/projects/hexpod2.webp
+  thumbnailAlt: The six-legged robot used for the sim-to-real locomotion controller
+  summary: >-
+    An early sim-to-real hierarchical controller — RL navigation on top of
+    per-leg foothold control — validated on a real six-legged robot.
+  project: /projects/hexapod-rl-locomotion/
+  tags: [Legged Robots, Reinforcement Learning, Sim-to-Real]
+
+tian2025nppinspection:
+  selected: true
+  order: 4
+  thumbnail: /images/publications/low_cost.webp
+  thumbnailAlt: System overview figure of the low-cost air-ground robotic solution for nuclear power plant inspection
+  summary: >-
+    A low-cost drone + ground-vehicle team for nuclear power plant
+    inspection, built in three weeks with ROS 2 and field-proven at the
+    EnRicH 2025 trials in a real plant — fully open-sourced.
+  project: /projects/enrich-2025/
+  tags: [Field Robotics, Inspection]
+
+tian2022capplanner:
+  selected: true
+  order: 5
+  thumbnail: /images/projects/capplanner_framework.webp
+  thumbnailAlt: CapPlanner hierarchical control and planning framework diagram
+  summary: >-
+    A hierarchical planner that learns a hexapod's traverse capability across
+    body topologies, enabling reliable long-range locomotion planning.
+  project: /projects/capability-locomotion/
+  pdf: /files/capplanner.pdf
+  tags: [Legged Robots, Planning, Reinforcement Learning]
+
+gao2024capability:
+  thumbnail: /images/projects/qz_cap.webp
+  thumbnailAlt: Layered learning framework and global path planning diagram for the Qingzhui hexapod
+  summary: >-
+    Capability maximizing, capability abstraction, and capability-based path
+    planning combined into one learning system, validated on the Qingzhui
+    hexapod in simulation and the real world.
+  project: /projects/capability-locomotion/
+  tags: [Legged Robots, Planning, Reinforcement Learning]
+
+garciacardenas2025trust:
+  thumbnail: /images/publications/icsr_multimodal.webp
+  thumbnailAlt: Experiment overview figure for multimodal trust and cognitive-load assessment with a legged robot
+  summary: >-
+    Physiological signals (skin conductance, facial temperature, blink rate)
+    and NASA-TLX reveal how terrain difficulty and teleoperation vs.
+    observation shape human trust and workload around a learning-based
+    quadruped.
+  tags: [Human-Robot Interaction, Legged Robots]
+
+arachchige2026agipix:
+  thumbnail: /images/publications/agipix.webp
+  thumbnailAlt: AgiPIX system overview figure for sim-to-real indoor aerial inspection
+  summary: >-
+    A sim-to-real pipeline for agile indoor aerial inspection, bridging
+    photorealistic simulation and real drone deployments.
+  tags: [Aerial Robots, Inspection, Sim-to-Real]
+
+kenan2025raicamtaros:
+  thumbnail: /images/publications/lessons_learned_taros.webp
+  thumbnailAlt: Photo from a RAICAM research sprint field demonstration
+  summary: >-
+    How structured research sprints and field demonstrations across seven
+    countries shaped collaboration in the RAICAM doctoral network.
+  tags: [Field Robotics]
+
+tian2026raicamras:
+  thumbnail: /images/publications/lessons_learned_ras.webp
+  thumbnailAlt: Overview figure from the RAICAM lessons-learned journal article
+  summary: >-
+    Extended journal account of the RAICAM doctoral network's research
+    sprints and field demonstrations, with lessons for doctoral training in
+    robotics.
+  tags: [Field Robotics]

@@ -1,0 +1,29 @@
+---
+import { SITE } from '../site.config';
+import SocialLinks from './SocialLinks.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-24 border-t border-line bg-surface">
+  <!-- trajectory divider: dashed = planned, solid = executed (design.md §22) -->
+  <svg
+    class="block h-4 w-full text-accent/50"
+    viewBox="0 0 1200 16"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+    <path d="M0 8 C 200 2, 400 14, 600 8 S 1000 2, 1200 8" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="6 5" />
+  </svg>
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 sm:flex-row sm:items-center sm:justify-between">
+    <div class="text-sm text-muted">
+      <p class="font-medium text-ink">{SITE.author.name}</p>
+      <p class="mt-1">{SITE.author.affiliation} · {SITE.author.location}</p>
+      <p class="mt-3 text-xs">
+        © {year} · Built with <a class="hover:text-accent underline decoration-line underline-offset-2" href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+        · <a class="hover:text-accent underline decoration-line underline-offset-2" href="/rss.xml">RSS</a>
+      </p>
+    </div>
+    <SocialLinks />
+  </div>
+</footer>

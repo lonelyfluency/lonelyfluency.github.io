@@ -1,0 +1,27 @@
+{
+  "name": "changda-tian-site",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Personal academic website of Changda Tian — robotics researcher",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@fontsource-variable/source-serif-4": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.17.1",
+    "lucide-astro": "^0.556.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.1.18",
+    "yaml": "^2.8.2"
+  }
+}

@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SoftwareCard from '../components/SoftwareCard.astro';
+import { getSoftware } from '../lib/data';
+import { SITE } from '../site.config';
+
+const software = getSoftware();
+const categories = [...new Set(software.map((s) => s.category))];
+---
+
+<BaseLayout
+  title="Software"
+  description="Open-source robotics software: planning and control research code, learning pipelines, and hexapod tooling."
+>
+  <div class="mx-auto max-w-6xl px-5 py-16">
+    <header class="max-w-2xl">
+      <p class="font-mono text-xs uppercase tracking-[0.18em] text-accent">Software</p>
+      <h1 class="mt-3 text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
+        Open source
+      </h1>
+      <p class="mt-4 text-lg text-muted">
+        Reusable engineering from my research — what each tool solves, not just
+        a wall of repositories. Everything lives on
+        <a href={SITE.social.github} target="_blank" rel="noopener noreferrer" class="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent">GitHub</a>.
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-12">
+      {
+        categories.map((cat) => (
+          <section>
+            <h2 class="mb-5 font-mono text-sm uppercase tracking-[0.14em] text-muted">{cat}</h2>
+            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {software
+                .filter((s) => s.category === cat)
+                .map((item) => (
+                  <SoftwareCard item={item} />
+                ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>

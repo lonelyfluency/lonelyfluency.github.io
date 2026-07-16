@@ -1,0 +1,140 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/source-serif-4';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { SITE } from '../site.config';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Path to a social preview image, defaults to the site-wide one. */
+  image?: string;
+  /** Extra JSON-LD structured data for this page. */
+  structuredData?: Record<string, unknown>;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = '/images/og-default.png',
+  structuredData,
+} = Astro.props;
+
+const pageTitle = title ? `${title} · ${SITE.title}` : `${SITE.title} — Robotics Researcher`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const personLD = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.author.name,
+  email: `mailto:${SITE.author.email}`,
+  url: SITE.url,
+  jobTitle: 'Robotics Researcher',
+  affiliation: { '@type': 'Organization', name: SITE.author.affiliation },
+  sameAs: Object.values(SITE.social).filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={SITE.author.name} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${SITE.title} — News`}
+      href={new URL('rss.xml', Astro.site)}
+    />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Theme: resolve before first paint to prevent flashing (design.md §21) -->
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = stored === 'dark' || stored === 'light' ? stored : system;
+      })();
+    </script>
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData ?? personLD)}
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-surface focus:text-ink focus:px-4 focus:py-2 focus:rounded-md focus:border focus:border-line"
+    >
+      Skip to content
+    </a>
+    <SiteHeader />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <SiteFooter />
+
+    <!-- Section reveal on scroll; no-ops under prefers-reduced-motion because
+         .reveal never hides content there (see global.css). A scroll-event
+         fallback guarantees content is never left hidden if IntersectionObserver
+         callbacks are throttled. -->
+    <script>
+      const els = [...document.querySelectorAll<HTMLElement>('.reveal')];
+      // "Entered or passed": anything whose top is above the viewport's lower
+      // edge is revealed, so content never stays hidden after fast jumps.
+      const inView = (el: HTMLElement) =>
+        el.getBoundingClientRect().top < window.innerHeight - 40;
+      const show = (el: HTMLElement) => el.classList.add('is-visible');
+
+      els.filter(inView).forEach(show);
+      let pending = els.filter((el) => !el.classList.contains('is-visible'));
+
+      if (pending.length && 'IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                show(e.target as HTMLElement);
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+        pending.forEach((el) => io.observe(el));
+
+        const onScroll = () => {
+          pending = pending.filter((el) => {
+            if (!inView(el)) return true;
+            show(el);
+            io.unobserve(el);
+            return false;
+          });
+          if (!pending.length) removeEventListener('scroll', onScroll);
+        };
+        addEventListener('scroll', onScroll, { passive: true });
+      } else {
+        pending.forEach(show);
+      }
+    </script>
+  </body>
+</html>
