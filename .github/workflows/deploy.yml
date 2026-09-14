@@ -1,4 +1,4 @@
-# Build and deploy the Astro site to GitHub Pages on every push to main.
+# Publish the redirect pages in site/ to GitHub Pages on every push to main.
 # Repo Settings → Pages → Source must be set to "GitHub Actions".
 name: Deploy to GitHub Pages
 
@@ -17,21 +17,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install, build, and upload
-        uses: withastro/action@v3
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Upload redirect pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
